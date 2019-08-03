@@ -39,5 +39,7 @@ contract Token is Pausable{
     function transfer(address to, uint value) ifNotPaused public{
         balances[msg.sender] -= value;
         balances[to] += value;
+        //validate that an account can't have more than 10k
+        require(balances[to] <= 10000);
     }
 }

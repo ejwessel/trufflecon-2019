@@ -37,6 +37,7 @@ contract CryticCoin{
     /// @param desired_tokens The number of tokens to buy
     /// @param wei_sent The ether value to be converted into token
     function _valid_buy(uint desired_tokens, uint wei_sent) internal view{
+        require(wei_sent >= 10);
         uint required_wei_sent = (desired_tokens / 10) * decimals; 
         require(wei_sent >= required_wei_sent);
     }
